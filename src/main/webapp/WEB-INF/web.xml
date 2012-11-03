@@ -19,5 +19,24 @@
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>DrawChart</servlet-name>
+    <servlet-class>com.example.DrawChart</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>DrawChart</servlet-name>
+    <url-pattern>/DrawChart</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DrawRegressionChart</servlet-name>
+    <servlet-class>com.example.DrawRegressionChart</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>DrawRegressionChart</servlet-name>
+    <url-pattern>/DrawRegressionChart</url-pattern>
+  </servlet-mapping>	
 
 </web-app>
