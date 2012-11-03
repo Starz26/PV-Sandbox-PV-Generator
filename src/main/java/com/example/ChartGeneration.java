@@ -19,7 +19,9 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import javax.imageio.ImageIO;
+import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -430,15 +432,19 @@ public class ChartGeneration {
 
 			// url call for SF public web service
 			URL url = new URL(
-					"http://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId");
-			URLConnection conn = url.openConnection();
-			conn.setDoOutput(true);
+					"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId");
+			
+			//URLConnection con = url.openConnection();
+			// for trusted connection
+			HttpsURLConnection con = (HttpsURLConnection)url.openConnection();
+			con.setHostnameVerifier(new CustomizedHostnameVerifier()); // to avoid exception for untrusted SSL 
+			con.setDoOutput(true);
 			OutputStreamWriter wr = new OutputStreamWriter(
-					conn.getOutputStream());
+					con.getOutputStream());
 			wr.write(data);
 			wr.flush();
 			BufferedReader rd = new BufferedReader(new InputStreamReader(
-					conn.getInputStream()));
+					con.getInputStream()));
 			line = rd.readLine();
 			wr.close();
 			rd.close();
@@ -450,4 +456,10 @@ public class ChartGeneration {
 						// image
 	}
 
+	// to avoid exception for untrusted SSL 
+	private static class CustomizedHostnameVerifier implements HostnameVerifier {
+		public boolean verify(String hostname, SSLSession session) {
+				return true;
+		}
+	}
 }
