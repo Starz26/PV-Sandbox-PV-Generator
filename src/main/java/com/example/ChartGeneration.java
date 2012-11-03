@@ -430,32 +430,18 @@ public class ChartGeneration {
 
 			// url call for SF public web service
 			URL url = new URL(
-					"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId");
-			/*
-			 * URLConnection conn = url.openConnection();
-			 * conn.setDoOutput(true); OutputStreamWriter wr = new
-			 * OutputStreamWriter( conn.getOutputStream()); wr.write(data);
-			 * wr.flush(); BufferedReader rd = new BufferedReader(new
-			 * InputStreamReader( conn.getInputStream())); line = rd.readLine();
-			 * wr.close(); rd.close();
-			 */
-			HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
-			con.setDoInput(true);
-	        con.setDoOutput(true);
-	        con.setRequestMethod("GET");
-	        con.setRequestProperty("pvId", pvId);
-	        con.setRequestProperty("authKey", authKey);
-	        con.setRequestProperty("chartType", chartType);
-	        con.setRequestProperty("analyte", analyte);
-	        
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					con.getInputStream()));
-
-			String input;
-			while ((input = br.readLine()) != null) {
-				line = input;
-			}
-			br.close();
+					"http://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId");
+			URLConnection conn = url.openConnection();
+			conn.setDoOutput(true);
+			OutputStreamWriter wr = new OutputStreamWriter(
+					conn.getOutputStream());
+			wr.write(data);
+			wr.flush();
+			BufferedReader rd = new BufferedReader(new InputStreamReader(
+					conn.getInputStream()));
+			line = rd.readLine();
+			wr.close();
+			rd.close();
 			// url call for SF public web service
 
 		} catch (Exception e) {
