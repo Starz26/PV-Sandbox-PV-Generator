@@ -429,7 +429,7 @@ public class ChartGeneration {
 
 			// url call for SF public web service
 			URL url = new URL(
-					"http://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId");
+					"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId");
 			URLConnection conn = url.openConnection();
 			conn.setDoOutput(true);
 			OutputStreamWriter wr = new OutputStreamWriter(
