@@ -440,6 +440,14 @@ public class ChartGeneration {
 			 * wr.close(); rd.close();
 			 */
 			HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
+			con.setDoInput(true);
+	        con.setDoOutput(true);
+	        con.setRequestMethod("GET");
+	        con.setRequestProperty("pvId", pvId);
+	        con.setRequestProperty("authKey", authKey);
+	        con.setRequestProperty("chartType", chartType);
+	        con.setRequestProperty("analyte", analyte);
+	        
 			BufferedReader br = new BufferedReader(new InputStreamReader(
 					con.getInputStream()));
 
