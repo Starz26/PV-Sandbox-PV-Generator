@@ -434,7 +434,7 @@ public class ChartGeneration {
 			// url call for SF public web service
 			URL url = new URL(
 					"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId");
-
+ 
 			// URLConnection con = url.openConnection();
 			// for trusted connection
 			HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
