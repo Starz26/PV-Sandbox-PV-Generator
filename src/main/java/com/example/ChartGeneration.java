@@ -283,31 +283,32 @@ public class ChartGeneration {
 				.createScatterPlot(grphTitle, xHdr, yHdr, dataset,
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
 
-		chart.setBackgroundPaint(Color.white); // setting background color for
-												// chart
+		// setting background color for chart
+		chart.setBackgroundPaint(Color.white); 
 
 		XYPlot plot = (XYPlot) chart.getXYPlot();
-		plot.setBackgroundPaint(Color.white); // setting background color for
-												// Plot area
-		plot.setDomainGridlinePaint(Color.lightGray); // setting horizontal grid
-														// line color
-		plot.setDomainGridlinesVisible(true); // setting horizontal grid line
-												// visibility
+		
+		// setting background color for Plot area
+		plot.setBackgroundPaint(Color.white);
+		// setting horizontal grid line color
+		plot.setDomainGridlinePaint(Color.lightGray);
+		// setting horizontal grid line visibility
+		plot.setDomainGridlinesVisible(true); 
 		// setting stroke for visibility of horizontal grid lines
 		plot.setDomainGridlineStroke(new BasicStroke(1f, BasicStroke.CAP_BUTT,
 				BasicStroke.JOIN_MITER, 1f, new float[] { 5.0f, 5.0f }, 0.0f));
 
-		plot.setRangeGridlinePaint(Color.lightGray); // setting vertical grid
-														// line color
-		plot.setRangeGridlinesVisible(true); // setting horizontal grid line
-												// visibility
+		// setting vertical grid line color
+		plot.setRangeGridlinePaint(Color.lightGray);
+		// setting horizontal grid line visibility
+		plot.setRangeGridlinesVisible(true); 
 		// setting stroke for visibility of horizontal grid lines
 		plot.setRangeGridlineStroke(new BasicStroke(1f, BasicStroke.CAP_BUTT,
 				BasicStroke.JOIN_MITER, 1f, new float[] { 5.0f, 5.0f }, 0.0f));
 
 		plot.setOutlineVisible(true); // to show horizontal last grid line
-		plot.setOutlineStroke(new BasicStroke(1f)); // to show horizontal last
-													// grid line
+		// to show horizontal last grid line
+		plot.setOutlineStroke(new BasicStroke(1f)); 
 		plot.setOutlinePaint(Color.black); // to show horizontal last grid line
 
 		float xminRange = 0;
@@ -433,11 +434,12 @@ public class ChartGeneration {
 			// url call for SF public web service
 			URL url = new URL(
 					"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId");
-			
-			//URLConnection con = url.openConnection();
-			//for trusted connection
-			HttpsURLConnection con = (HttpsURLConnection)url.openConnection();
-			con.setHostnameVerifier(new CustomizedHostnameVerifier()); // to avoid exception for untrusted SSL 
+
+			// URLConnection con = url.openConnection();
+			// for trusted connection
+			HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
+			// to avoid exception for untrusted SSL
+			con.setHostnameVerifier(new CustomizedHostnameVerifier()); 
 			con.setDoOutput(true);
 			OutputStreamWriter wr = new OutputStreamWriter(
 					con.getOutputStream());
@@ -452,14 +454,13 @@ public class ChartGeneration {
 
 		} catch (Exception e) {
 		}
-		return line; // returs '!@' seperated string (values) to generate chart
-						// image
+		return line; // returs '!@' seperated string (values) to generate chart image 
 	}
 
-	// to avoid exception for untrusted SSL 
+	// to avoid exception for untrusted SSL
 	private static class CustomizedHostnameVerifier implements HostnameVerifier {
 		public boolean verify(String hostname, SSLSession session) {
-				return true;
+			return true;
 		}
 	}
 }
