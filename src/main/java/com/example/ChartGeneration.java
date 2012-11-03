@@ -431,18 +431,23 @@ public class ChartGeneration {
 			// url call for SF public web service
 			URL url = new URL(
 					"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId");
-			//URLConnection conn = url.openConnection();
-			HttpsURLConnection conn = (HttpsURLConnection)url.openConnection();
-			conn.setDoOutput(true);
-			OutputStreamWriter wr = new OutputStreamWriter(
-					conn.getOutputStream());
-			wr.write(data);
-			wr.flush();
-			BufferedReader rd = new BufferedReader(new InputStreamReader(
-					conn.getInputStream()));
-			line = rd.readLine();
-			wr.close();
-			rd.close();
+			/*
+			 * URLConnection conn = url.openConnection();
+			 * conn.setDoOutput(true); OutputStreamWriter wr = new
+			 * OutputStreamWriter( conn.getOutputStream()); wr.write(data);
+			 * wr.flush(); BufferedReader rd = new BufferedReader(new
+			 * InputStreamReader( conn.getInputStream())); line = rd.readLine();
+			 * wr.close(); rd.close();
+			 */
+			HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					con.getInputStream()));
+
+			String input;
+			while ((input = br.readLine()) != null) {
+				line = input;
+			}
+			br.close();
 			// url call for SF public web service
 
 		} catch (Exception e) {
