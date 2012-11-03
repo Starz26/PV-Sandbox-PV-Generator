@@ -435,7 +435,7 @@ public class ChartGeneration {
 					"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId");
 			
 			//URLConnection con = url.openConnection();
-			// for trusted connection
+			//for trusted connection
 			HttpsURLConnection con = (HttpsURLConnection)url.openConnection();
 			con.setHostnameVerifier(new CustomizedHostnameVerifier()); // to avoid exception for untrusted SSL 
 			con.setDoOutput(true);
