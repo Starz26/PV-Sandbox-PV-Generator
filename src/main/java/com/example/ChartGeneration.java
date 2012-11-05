@@ -431,9 +431,11 @@ public class ChartGeneration {
 					+ URLEncoder.encode(analyte, "UTF-8");
 			// parameters passed in SF public web service to get data
 
+			String sfPublicUrl = System.getenv("SFPublicUrl");	
+			
 			// url call for SF public web service
-			URL url = new URL(
-					"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId");
+			//"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId"
+			URL url = new URL(sfPublicUrl);
  
 			// URLConnection con = url.openConnection();
 			// for trusted connection
