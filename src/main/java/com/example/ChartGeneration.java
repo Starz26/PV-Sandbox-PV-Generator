@@ -432,11 +432,12 @@ public class ChartGeneration {
 			// parameters passed in SF public web service to get data
 
 			String sfPublicUrl = System.getenv("SFPublicUrl");	
-			
+			line = sfPublicUrl;
+			return line;
 			// url call for SF public web service
 			//"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId"
-			URL url = new URL(sfPublicUrl);
- 
+			/*
+			 URL url = new URL(sfPublicUrl);
 			// URLConnection con = url.openConnection();
 			// for trusted connection
 			HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
@@ -453,7 +454,7 @@ public class ChartGeneration {
 			wr.close();
 			rd.close();
 			// url call for SF public web service
-
+			*/
 		} catch (Exception e) {
 		}
 		return line; // returs '!@' seperated string (values) to generate chart image 
