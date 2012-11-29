@@ -364,7 +364,7 @@ public class ChartGeneration {
 
 		if (plot.getSeriesCount() > 1) {
 			// set shape and color for plots in case of outlier
-			Shape circle = new Ellipse2D.Double(2f, 2f, 4f, 4f);
+			Shape circle = new Ellipse2D.Double(-2f, -2f, 4f, 4f);
 			renderer.setSeriesPaint(1, Color.RED);
 			renderer.setSeriesLinesVisible(1, false);
 			renderer.setSeriesShape(1, circle);
