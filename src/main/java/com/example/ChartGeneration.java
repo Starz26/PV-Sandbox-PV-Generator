@@ -8,6 +8,7 @@ package com.example;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
@@ -30,6 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.annotations.XYLineAnnotation;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.NumberTickUnit;
@@ -284,10 +286,13 @@ public class ChartGeneration {
 		JFreeChart chart = ChartFactory
 				.createScatterPlot(grphTitle, xHdr, yHdr, dataset,
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
-
+		
+		
 		// setting background color for chart
 		chart.setBackgroundPaint(Color.white); 
 
+		applyChartTheme(chart);
+		
 		XYPlot plot = (XYPlot) chart.getXYPlot();
 		
 		// setting background color for Plot area
@@ -458,6 +463,32 @@ public class ChartGeneration {
 		}
 		return line; // returs '!@' seperated string (values) to generate chart image 
 	}
+	
+	//themes
+	public static void applyChartTheme(JFreeChart chart) {
+        final StandardChartTheme chartTheme = (StandardChartTheme) StandardChartTheme.createJFreeTheme();
+        
+        // The default font used by JFreeChart unable to render Chinese properly.
+        // We need to provide font which is able to support Chinese rendering.
+        
+            final Font oldExtraLargeFont = chartTheme.getExtraLargeFont();
+            final Font oldLargeFont = chartTheme.getLargeFont();
+            final Font oldRegularFont = chartTheme.getRegularFont();
+            final Font oldSmallFont = chartTheme.getSmallFont();
+
+            final Font extraLargeFont = new Font("TimesRoman", oldExtraLargeFont.getStyle(), oldExtraLargeFont.getSize());
+            final Font largeFont = new Font("TimesRoman", oldLargeFont.getStyle(), oldLargeFont.getSize());
+            final Font regularFont = new Font("TimesRoman", oldRegularFont.getStyle(), oldRegularFont.getSize());
+            final Font smallFont = new Font("TimesRoman", oldSmallFont.getStyle(), oldSmallFont.getSize());
+
+            chartTheme.setExtraLargeFont(extraLargeFont);
+            chartTheme.setLargeFont(largeFont);
+            chartTheme.setRegularFont(regularFont);
+            chartTheme.setSmallFont(smallFont);
+        
+
+        chartTheme.apply(chart);
+    }
 
 	// to avoid exception for untrusted SSL
 	private static class CustomizedHostnameVerifier implements HostnameVerifier {
