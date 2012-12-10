@@ -33,6 +33,7 @@ import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.annotations.XYLineAnnotation;
+import org.jfree.chart.annotations.XYTextAnnotation;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.NumberTickUnit;
 import org.jfree.chart.plot.PlotOrientation;
@@ -290,11 +291,11 @@ public class ChartGeneration {
 		
 		// setting background color for chart
 		chart.setBackgroundPaint(Color.white); 
-
+		
 		applyChartTheme(chart);
 		
 		XYPlot plot = (XYPlot) chart.getXYPlot();
-		
+		plot.addAnnotation(new XYTextAnnotation("Intercept: " + x1y1,198,88));
 		// setting background color for Plot area
 		plot.setBackgroundPaint(Color.white);
 		// setting horizontal grid line color
