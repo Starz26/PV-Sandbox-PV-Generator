@@ -412,6 +412,9 @@ public class ChartGeneration {
 			XYLineAnnotation line = new XYLineAnnotation(x1, y1, x2, y2,
 					new BasicStroke(0.5f), Color.black);
 			plot.addAnnotation(line);
+			
+			// Just example. Will need to pass in Slpe and Intercept to display them
+			
 			//double newNum = Math.round(y1*10000.0)/10000.0;
 			plot.addAnnotation(new XYTextAnnotation("yPoints: " + y1 + " : " + y2 ,xminRange + x_Interval, ymaxRange - y_Interval));
 			plot.addAnnotation(new XYTextAnnotation("xPoints: " + x1 + " : " + x2,xminRange + x_Interval, ymaxRange - (y_Interval *2) ));
