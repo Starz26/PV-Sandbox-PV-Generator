@@ -295,7 +295,7 @@ public class ChartGeneration {
 		applyChartTheme(chart);
 		
 		XYPlot plot = (XYPlot) chart.getXYPlot();
-		plot.addAnnotation(new XYTextAnnotation("Intercept: " + x1y1,198,88));
+		
 		// setting background color for Plot area
 		plot.setBackgroundPaint(Color.white);
 		// setting horizontal grid line color
@@ -412,6 +412,9 @@ public class ChartGeneration {
 			XYLineAnnotation line = new XYLineAnnotation(x1, y1, x2, y2,
 					new BasicStroke(0.5f), Color.black);
 			plot.addAnnotation(line);
+			double newNum = Math.round(y1*100.0)/100.0;
+			plot.addAnnotation(new XYTextAnnotation("Intercept: " + newNum,xminRange, ymaxRange));
+			
 		}
 		// regression line for regression chart
 
