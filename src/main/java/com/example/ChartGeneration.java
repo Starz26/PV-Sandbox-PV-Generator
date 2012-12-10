@@ -412,8 +412,8 @@ public class ChartGeneration {
 			XYLineAnnotation line = new XYLineAnnotation(x1, y1, x2, y2,
 					new BasicStroke(0.5f), Color.black);
 			plot.addAnnotation(line);
-			double newNum = Math.round(y1*10000.0)/10000.0;
-			plot.addAnnotation(new XYTextAnnotation("Intercept: " + newNum,xminRange + x_Interval, ymaxRange - y_Interval));
+			//double newNum = Math.round(y1*10000.0)/10000.0;
+			plot.addAnnotation(new XYTextAnnotation("Intercept: " + y1,xminRange + x_Interval, ymaxRange - y_Interval));
 			
 		}
 		// regression line for regression chart
