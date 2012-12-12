@@ -292,7 +292,7 @@ public class ChartGeneration {
 		// setting background color for chart
 		chart.setBackgroundPaint(Color.white); 
 		
-		applyChartTheme(chart);
+		//applyChartTheme(chart);
 		
 		XYPlot plot = (XYPlot) chart.getXYPlot();
 		
