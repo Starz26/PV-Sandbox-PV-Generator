@@ -119,12 +119,15 @@ public class ChartGeneration {
 						case 9:
 							graphTitle = sStr[isStr];
 							graphTitle = graphTitle.replace(tknLineBrk, "\n");
+							graphTitle = graphTitle.replaceAll("\\<.*?>","");
 							break;
 						case 10:
 							xAxisTitle = sStr[isStr];
+							xAxisTitle = xAxisTitle.replaceAll("\\<.*?>","");
 							break;
 						case 11:
 							yAxisTitle = sStr[isStr];
+							yAxisTitle = yAxisTitle.replaceAll("\\<.*?>","");
 							break;
 						case 12:
 							x1y1 = sStr[isStr];
