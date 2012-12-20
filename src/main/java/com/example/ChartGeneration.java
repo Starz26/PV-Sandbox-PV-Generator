@@ -171,6 +171,7 @@ public class ChartGeneration {
 			}
 			if (request.getParameter("graphtitle") != null) {
 				graphTitle = request.getParameter("graphtitle");
+				graphTitle = graphTitle.replaceAll("<.*?>","");
 			}
 			if (request.getParameter("xaxistitle") != null) {
 				xAxisTitle = request.getParameter("xaxistitle");
