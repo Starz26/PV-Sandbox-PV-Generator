@@ -174,9 +174,11 @@ public class ChartGeneration {
 			}
 			if (request.getParameter("xaxistitle") != null) {
 				xAxisTitle = request.getParameter("xaxistitle");
+				xAxisTitle = xAxisTitle.replaceAll("<.*?>","");
 			}
 			if (request.getParameter("yaxistitle") != null) {
 				yAxisTitle = request.getParameter("yaxistitle");
+				yAxisTitle = yAxisTitle.replaceAll("<.*?>","");
 			}
 			if (request.getParameter("x1y1") != null) {
 				x1y1 = request.getParameter("x1y1");
