@@ -457,7 +457,7 @@ public class ChartGeneration {
 					+ URLEncoder.encode(analyte, "UTF-8");
 			// parameters passed in SF public web service to get data
 System.out.println(data);
-			String sfPublicUrl = System.getenv("SFPublicUrl");
+			String sfPublicUrl = System.getenv("SFPublicUrl") + "?" + data;
 			System.out.println(sfPublicUrl);
 			//"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId"
 			
@@ -468,10 +468,10 @@ System.out.println(data);
 			// to avoid exception for untrusted SSL
 			con.setHostnameVerifier(new CustomizedHostnameVerifier()); 
 			con.setDoOutput(true);
-			OutputStreamWriter wr = new OutputStreamWriter(
-					con.getOutputStream());
-			wr.write(data);
-			wr.flush();
+			//OutputStreamWriter wr = new OutputStreamWriter(
+			//		con.getOutputStream());
+			//wr.write(data);
+			//wr.flush();
 			BufferedReader rd = new BufferedReader(new InputStreamReader(
 					con.getInputStream()));
 			line = rd.readLine();
