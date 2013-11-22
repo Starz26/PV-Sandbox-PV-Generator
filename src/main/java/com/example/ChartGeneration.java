@@ -468,10 +468,13 @@ System.out.println(data);
 			// to avoid exception for untrusted SSL
 			con.setHostnameVerifier(new CustomizedHostnameVerifier()); 
 			con.setDoOutput(true);
-			//OutputStreamWriter wr = new OutputStreamWriter(
-			//		con.getOutputStream());
-			//wr.write(data);
+			OutputStreamWriter wr = new OutputStreamWriter(
+					con.getOutputStream());
+			wr.write(data);
 			//wr.flush();
+System.out.println(con.connected());
+			con.connect();
+System.out.println(con.connected());
 			BufferedReader rd = new BufferedReader(new InputStreamReader(
 					con.getInputStream()));
 			line = rd.readLine();
