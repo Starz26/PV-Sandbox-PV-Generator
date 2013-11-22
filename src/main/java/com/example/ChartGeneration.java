@@ -447,7 +447,7 @@ public class ChartGeneration {
 		//System.out.println(pvId + ' - ' + acctoken + ' - ' + chartType + ' - ' +analyte + ' - ' + authKey);
 		try {
 			// parameters passed in SF public web service to get data
-			String data = URLEncoder.encode("pvId", "UTF-8") + "="
+			String data = "?" + URLEncoder.encode("pvId", "UTF-8") + "="
 					+ URLEncoder.encode(pvId, "UTF-8");
 			data += "&" + URLEncoder.encode("authKey", "UTF-8") + "="
 					+ URLEncoder.encode(authKey, "UTF-8");
@@ -457,7 +457,7 @@ public class ChartGeneration {
 					+ URLEncoder.encode(analyte, "UTF-8");
 			// parameters passed in SF public web service to get data
 System.out.println(data);
-			String sfPublicUrl = System.getenv("SFPublicUrl") + "?" + data;
+			String sfPublicUrl = System.getenv("SFPublicUrl") + data;
 			System.out.println(sfPublicUrl);
 			//"https://abbott-integration.fbd.cs11.force.com/PV_GenerateChartImageForPvId"
 			
@@ -476,7 +476,7 @@ System.out.println(data);
 					con.getInputStream()));
 			line = rd.readLine();
 			System.out.println(line);
-			wr.close();
+			//wr.close();
 			rd.close();
 			// url call for SF public web service
 			
