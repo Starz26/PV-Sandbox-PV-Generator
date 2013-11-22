@@ -472,9 +472,9 @@ System.out.println(data);
 					con.getOutputStream());
 			wr.write(data);
 			//wr.flush();
-System.out.println(con.connected);
+//System.out.println(con.connected);
 			con.connect();
-System.out.println(con.connected);
+//System.out.println(con.connected);
 			BufferedReader rd = new BufferedReader(new InputStreamReader(
 					con.getInputStream()));
 			line = rd.readLine();
