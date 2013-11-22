@@ -80,12 +80,14 @@ public class ChartGeneration {
 			// in case, length of image url is greater then 2000 characters, SF
 			// will pass pvid in rquest for heroku
 			String spvId = request.getParameter("pvId");
+			System.out.println(spvId);
 			if (spvId != null) {
 				// getting values for pvid from SF and stores in variables
 				// '!@' separated string will be written from SF public web
 				// service
 				String strFromSF = GetDataFromSF(spvId, accToken, chartType,
 						analyte);
+				System.out.println(strFromSF);
 				if (strFromSF != null && strFromSF != "") {
 					String[] sStr = strFromSF.split("!@");
 					for (int isStr = 0; isStr <= sStr.length - 1; isStr++) {
