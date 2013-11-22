@@ -80,9 +80,9 @@ public class ChartGeneration {
 			// in case, length of image url is greater then 2000 characters, SF
 			// will pass pvid in rquest for heroku
 			String spvId = request.getParameter("pvId");
-			System.out.println('PVID: ' + spvId);
+			System.out.println("PVID: " + spvId);
 			if (spvId != null) {
-			System.out.println('In If Statement');	
+			System.out.println("In If Statement");	
 				// getting values for pvid from SF and stores in variables
 				// '!@' separated string will be written from SF public web
 				// service
@@ -444,7 +444,7 @@ public class ChartGeneration {
 		String line = "";
 		String authKey = accToken; // "1111";
 		
-		System.out.println(pvId + ' - ' + acctoken + ' - ' + chartType + ' - ' +analyte + ' - ' + authKey);
+		//System.out.println(pvId + ' - ' + acctoken + ' - ' + chartType + ' - ' +analyte + ' - ' + authKey);
 		try {
 			// parameters passed in SF public web service to get data
 			String data = URLEncoder.encode("pvId", "UTF-8") + "="
