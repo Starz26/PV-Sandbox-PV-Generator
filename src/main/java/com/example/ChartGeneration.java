@@ -468,6 +468,7 @@ System.out.println(data);
 			// to avoid exception for untrusted SSL
 			con.setHostnameVerifier(new CustomizedHostnameVerifier()); 
 			con.setDoOutput(true);
+			con.setDoInput(true);
 			OutputStreamWriter wr = new OutputStreamWriter(
 					con.getOutputStream());
 			wr.write(data);
