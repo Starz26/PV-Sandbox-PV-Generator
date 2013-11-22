@@ -5,6 +5,7 @@
 package com.example;
 
 /* Just Adding Comment */
+//Testing another comment
 
 import java.awt.BasicStroke;
 import java.awt.Color;
