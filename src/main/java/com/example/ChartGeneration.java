@@ -480,7 +480,7 @@ System.out.println(data);
 			BufferedReader in = new BufferedReader(
         		new InputStreamReader(url.openStream()));
 
-			String line;
+			//String line;
 		        while ((line = in.readLine()) != null)
         	    	System.out.println(line);
         		in.close();
