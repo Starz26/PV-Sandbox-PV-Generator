@@ -464,24 +464,28 @@ System.out.println(data);
 			// url call for SF public web service
 			URL url = new URL(sfPublicUrl);
 			// for trusted connection
-			HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
+			//HttpsURLConnection con = (HttpsURLConnection) url.openConnection();
 			// to avoid exception for untrusted SSL
-			con.setHostnameVerifier(new CustomizedHostnameVerifier()); 
-			con.setDoOutput(true);
-			con.setDoInput(true);
-			OutputStreamWriter wr = new OutputStreamWriter(
-					con.getOutputStream());
-			wr.write(data);
+			//con.setHostnameVerifier(new CustomizedHostnameVerifier()); 
+			//con.setDoOutput(true);
+			//con.setDoInput(true);
+			//OutputStreamWriter wr = new OutputStreamWriter(
+			//		con.getOutputStream());
+			//wr.write(data);
 			//wr.flush();
-//System.out.println(con.connected);
-			con.connect();
-//System.out.println(con.connected);
-			BufferedReader rd = new BufferedReader(new InputStreamReader(
-					con.getInputStream()));
-			line = rd.readLine();
-			System.out.println(line);
+			//con.connect();
+			//BufferedReader rd = new BufferedReader(new InputStreamReader(
+			//		con.getInputStream()));
+			//line = rd.readLine();
+			BufferedReader in = new BufferedReader(
+        		new InputStreamReader(url.openStream()));
+
+			String line;
+		        while ((line = in.readLine()) != null)
+        	    	System.out.println(line);
+        		in.close();
 			//wr.close();
-			rd.close();
+			//rd.close();
 			// url call for SF public web service
 			
 		} catch (Exception e) {
