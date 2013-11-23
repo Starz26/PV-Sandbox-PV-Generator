@@ -481,8 +481,8 @@ System.out.println(data);
         		new InputStreamReader(url.openStream()));
 
 			//String line;
-		        while ((line = in.readLine()) != null)
-        	    	System.out.println(line);
+		        line = in.readLine();
+        	   	System.out.println(line);
         		in.close();
 			//wr.close();
 			//rd.close();
