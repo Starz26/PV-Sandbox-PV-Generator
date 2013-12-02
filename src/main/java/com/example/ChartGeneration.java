@@ -216,7 +216,7 @@ public class ChartGeneration {
 			JFreeChart chart = getChart(dataset, graphTitle, xAxisTitle,
 					yAxisTitle, chartType, x1y1, x2y2, xRange, xInterval,
 					yRange, yInterval);
-
+			
 			// jfree chart library method to generate image for chart
 			ChartUtilities.writeChartAsPNG(outputStream, chart, width, height);
 		} catch (Exception e) {
@@ -306,10 +306,12 @@ public class ChartGeneration {
 		boolean tooltips = true;
 		boolean urls = false;
 		JFreeChart chart = ChartFactory
-				.createScatterPlot(grphTitle, xHdr, yHdr, dataset,
+				.createScatterPlot(null, xHdr, yHdr, dataset,
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
 		
-		
+		TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.PLAIN, 12));        
+        chart.addTitle(title2);
+
 		// setting background color for chart
 		chart.setBackgroundPaint(Color.white); 
 		
