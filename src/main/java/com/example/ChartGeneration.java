@@ -310,9 +310,9 @@ public class ChartGeneration {
 				.createScatterPlot(null, xHdr, yHdr, dataset,
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
 		
-		//TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.PLAIN, 12));        
-        //chart.setTitle(title2);
-		chart.setTitle("TEST");
+		TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.PLAIN, 12));        
+        chart.setTitle(title2);
+		//chart.setTitle("TEST");
 		// setting background color for chart
 		chart.setBackgroundPaint(Color.white); 
 		
