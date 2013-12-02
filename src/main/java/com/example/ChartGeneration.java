@@ -29,7 +29,7 @@ import javax.net.ssl.SSLSession;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-/*import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.StandardChartTheme;
@@ -40,11 +40,10 @@ import org.jfree.chart.axis.NumberTickUnit;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-*/
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.util.ShapeUtilities;
-import org.jfree.chart.*;
+import org.jfree.chart.title.TextTitle;
 
 public class ChartGeneration {
 
@@ -311,9 +310,9 @@ public class ChartGeneration {
 				.createScatterPlot(null, xHdr, yHdr, dataset,
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
 		
-		TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.PLAIN, 12));        
-        chart.addTitle(title2);
-
+		//TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.PLAIN, 12));        
+        //chart.setTitle(title2);
+		chart.setTitle("TEST");
 		// setting background color for chart
 		chart.setBackgroundPaint(Color.white); 
 		
