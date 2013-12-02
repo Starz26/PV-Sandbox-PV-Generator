@@ -149,11 +149,11 @@ public class ChartGeneration {
 			int height = 450;
 
 			// getting values for querystring parameters in variables
-			if(request.getParameter('height') != null){
-				height = request.getParameter('height');
+			if(request.getParameter("height") != null){
+				height = request.getParameter("height");
 			}
-			if(request.getParameter('width') != null){
-				width = request.getParameter('width');
+			if(request.getParameter("width") != null){
+				width = request.getParameter("width");
 			}
 
 			System.println(height);
