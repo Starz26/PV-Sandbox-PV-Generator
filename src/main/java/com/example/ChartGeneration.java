@@ -156,8 +156,8 @@ public class ChartGeneration {
 				width = request.getParameter("width");
 			}
 
-			System.println(height);
-			System.println(width);
+			System.out.println(height);
+			System.out.println(width);
 
 			if (request.getParameter("xval") != null) {
 				xValues = request.getParameter("xval");
