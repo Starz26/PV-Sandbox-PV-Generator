@@ -311,7 +311,8 @@ public class ChartGeneration {
 				.createScatterPlot(null, xHdr, yHdr, dataset,
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
 		
-		TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.PLAIN, 12),AbstractTitle.CENTER);        
+		TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.PLAIN, 12));
+		title2.setHorizontalAlignment(HorizontalAlignment.CENTER);        
         chart.setTitle(title2);
 		//chart.setTitle("TEST");
 		// setting background color for chart
