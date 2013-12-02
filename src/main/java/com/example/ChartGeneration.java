@@ -312,7 +312,7 @@ public class ChartGeneration {
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
 		
 		TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.PLAIN, 12));
-		title2.setHorizontalAlignment(HorizontalAlignment.CENTER);        
+		title2.setHorizontalAlignment(CENTER);        
         chart.setTitle(title2);
 		//chart.setTitle("TEST");
 		// setting background color for chart
