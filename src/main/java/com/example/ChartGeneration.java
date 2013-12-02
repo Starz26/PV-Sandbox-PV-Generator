@@ -43,8 +43,8 @@ import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.util.ShapeUtilities;
-//import org.jfree.chart.title.TextTitle;
-import org.jfree.chart.AbstractTitle.*;
+import org.jfree.chart.title.TextTitle;
+import org.jfree.chart.AbstractTitle;
 
 public class ChartGeneration {
 
@@ -311,7 +311,7 @@ public class ChartGeneration {
 				.createScatterPlot(null, xHdr, yHdr, dataset,
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
 		
-		TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.PLAIN, 12));        
+		TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.PLAIN, 12),AbstractTitle.CENTER);        
         chart.setTitle(title2);
 		//chart.setTitle("TEST");
 		// setting background color for chart
