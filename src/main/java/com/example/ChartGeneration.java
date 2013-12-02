@@ -44,7 +44,7 @@ import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.util.ShapeUtilities;
-import org.jfree.chart.*
+import org.jfree.chart.*;
 
 public class ChartGeneration {
 
