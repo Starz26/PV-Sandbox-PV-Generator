@@ -144,8 +144,21 @@ public class ChartGeneration {
 				}
 				// getting values for pvid from SF and stores in variables
 			}
+			// hxw of image to be generated for chart - default to 550x450
+			int width = 550;
+			int height = 450;
 
 			// getting values for querystring parameters in variables
+			if(request.getParameter('height') != null){
+				height = request.getParameter('height');
+			}
+			if(request.getParameter('width') != null){
+				width = request.getParameter('width');
+			}
+
+			System.println(height);
+			System.println(width);
+
 			if (request.getParameter("xval") != null) {
 				xValues = request.getParameter("xval");
 			}
@@ -203,9 +216,7 @@ public class ChartGeneration {
 			JFreeChart chart = getChart(dataset, graphTitle, xAxisTitle,
 					yAxisTitle, chartType, x1y1, x2y2, xRange, xInterval,
 					yRange, yInterval);
-			// hxw of image to be generated for chart
-			int width = 550;
-			int height = 450;
+
 			// jfree chart library method to generate image for chart
 			ChartUtilities.writeChartAsPNG(outputStream, chart, width, height);
 		} catch (Exception e) {
