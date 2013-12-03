@@ -78,6 +78,15 @@ public class ChartGeneration {
 	public void GenerateChartImage(HttpServletRequest request,
 			HttpServletResponse response, String chartType, String analyte,
 			String accToken) throws ServletException, IOException {
+			boolean isIVIS = false;
+
+			if(request.getParameter("ivis") != null){
+				if(request.getParameter("ivis").equals("true"))
+					isIVIS = true;
+
+			}
+
+
 		try {
 
 			// parameters passed in SF request for heroku
@@ -91,7 +100,7 @@ public class ChartGeneration {
 				// '!@' separated string will be written from SF public web
 				// service
 				String strFromSF = GetDataFromSF(spvId, accToken, chartType,
-						analyte);
+						analyte,isIVIS);
 				System.out.println(strFromSF);
 				if (strFromSF != null && strFromSF != "") {
 					String[] sStr = strFromSF.split("!@");
@@ -151,7 +160,7 @@ public class ChartGeneration {
 			// hxw of image to be generated for chart - default to 550x450
 			int width = 550;
 			int height = 450;
-			boolean isIVIS = false;
+
 			// getting values for querystring parameters in variables
 			if(request.getParameter("height") != null){
 				height = Integer.parseInt(request.getParameter("height"));
@@ -160,17 +169,8 @@ public class ChartGeneration {
 				width = Integer.parseInt(request.getParameter("width"));
 			}
 
-			System.out.println(height);
-			System.out.println(width);
-			System.out.println(request.getParameter("ivis"));
-			//System.out.println(tmp.equals("true"));
 
-			if(request.getParameter("ivis") != null){
-				if(request.getParameter("ivis").equals("true"))
-					isIVIS = true;
 
-			}
-System.out.println(isIVIS);
 			if (request.getParameter("xval") != null) {
 				xValues = request.getParameter("xval");
 			}
@@ -484,7 +484,7 @@ System.out.println(isIVIS);
 	// all values used to generate chart image
 	// for this scenario SF public web service will be used
 	public String GetDataFromSF(String pvId, String accToken, String chartType,
-			String analyte) {
+			String analyte, String isivis) {
 		String line = "";
 		String authKey = accToken; // "1111";
 		
@@ -499,6 +499,9 @@ System.out.println(isIVIS);
 					+ URLEncoder.encode(chartType, "UTF-8");
 			data += "&" + URLEncoder.encode("analyte", "UTF-8") + "="
 					+ URLEncoder.encode(analyte, "UTF-8");
+			data += "&" + URLEncoder.encode("ivis", "UTF-8") + "="
+					+ URLEncoder.encode(isivis, "UTF-8");
+
 			// parameters passed in SF public web service to get data
 System.out.println(data);
 			String sfPublicUrl = System.getenv("SFPublicUrl") + data;
