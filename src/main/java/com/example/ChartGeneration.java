@@ -500,7 +500,7 @@ public class ChartGeneration {
 			data += "&" + URLEncoder.encode("analyte", "UTF-8") + "="
 					+ URLEncoder.encode(analyte, "UTF-8");
 			data += "&" + URLEncoder.encode("ivis", "UTF-8") + "="
-					+ URLEncoder.encode(isivis, "UTF-8");
+					+ URLEncoder.encode(String.valueOf(isivis), "UTF-8");
 
 			// parameters passed in SF public web service to get data
 System.out.println(data);
