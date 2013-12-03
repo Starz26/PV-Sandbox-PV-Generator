@@ -37,6 +37,7 @@ import org.jfree.chart.annotations.XYLineAnnotation;
 import org.jfree.chart.annotations.XYTextAnnotation;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.NumberTickUnit;
+import org.jfree.chart.axis.Axis;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
@@ -363,6 +364,9 @@ public class ChartGeneration {
 			x_Interval = Float.parseFloat(xAxisInterval);
 			plot.setDomainCrosshairVisible(true);
 			NumberAxis domain = (NumberAxis) plot.getDomainAxis();
+			
+			domain.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 8));
+
 			domain.setRange(xminRange, xmaxRange);
 			domain.setTickUnit(new NumberTickUnit(x_Interval));
 			domain.setLabelPaint(Color.black);
