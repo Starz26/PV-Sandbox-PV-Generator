@@ -313,7 +313,7 @@ public class ChartGeneration {
 				.createScatterPlot(null, xHdr, yHdr, dataset,
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
 		
-		TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.PLAIN, 12));
+		TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.BOLD, 12));
 		title2.setTextAlignment(HorizontalAlignment.CENTER);
         chart.setTitle(title2);
 
@@ -365,7 +365,7 @@ public class ChartGeneration {
 			plot.setDomainCrosshairVisible(true);
 			NumberAxis domain = (NumberAxis) plot.getDomainAxis();
 			
-			domain.setLabelFont(new Font("SansSerif", Font.PLAIN, 8));
+			domain.setLabelFont(new Font("SansSerif", Font.BOLD, 10));
  
 			domain.setRange(xminRange, xmaxRange);
 			domain.setTickUnit(new NumberTickUnit(x_Interval));
