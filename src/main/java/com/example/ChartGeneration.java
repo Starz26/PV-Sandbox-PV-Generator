@@ -200,10 +200,11 @@ public class ChartGeneration {
 				typeCht = request.getParameter("charttype");
 			}
 			if (request.getParameter("graphtitle") != null) {
-System.out.println(graphtitle);
+System.out.println(request.getParameter("graphtitle"));
+System.out.println(graphTitle);
 				graphTitle = request.getParameter("graphtitle");
 				graphTitle = graphTitle.replaceAll("<.*?>","");
-System.out.println(graphtitle);
+System.out.println(graphTitle);
 			}
 			if (request.getParameter("xaxistitle") != null) {
 				xAxisTitle = request.getParameter("xaxistitle");
