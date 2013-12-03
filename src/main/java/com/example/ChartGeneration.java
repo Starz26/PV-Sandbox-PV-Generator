@@ -159,15 +159,16 @@ public class ChartGeneration {
 			if(request.getParameter("width") != null){
 				width = Integer.parseInt(request.getParameter("width"));
 			}
-			String tmp = request.getParameter("ivis");
 
 			System.out.println(height);
 			System.out.println(width);
 			System.out.println(request.getParameter("ivis"));
-			System.out.println(tmp.equals("true"));
+			//System.out.println(tmp.equals("true"));
 
-			if(request.getParameter("ivis") == "true"){
-				isIVIS = true;
+			if(request.getParameter("ivis") != null){
+				if(request.getParameter("ivis").equals("true"))
+					isIVIS = true;
+
 			}
 System.out.println(isIVIS);
 			if (request.getParameter("xval") != null) {
