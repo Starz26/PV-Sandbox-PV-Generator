@@ -324,13 +324,12 @@ public class ChartGeneration {
 		
 		//Set title font here for IVIS
 		if(isIVIS){			
-			TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.BOLD, 12));
-			//TextTitle mysub = new TextTitle("SUB", new Font("SansSerif", Font.BOLD, 10));
-			title2.setTextAlignment(HorizontalAlignment.CENTER);
-			//mysub.setTextAlignment(HorizontalAlignment.CENTER);
-	        chart.setTitle(title2);
-	        chart.addSubtitle(title2);
-	        //chart.addSubtitle(mysub);
+			//TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.BOLD, 12));
+			//title2.setTextAlignment(HorizontalAlignment.CENTER);
+	        //chart.setTitle(title2);
+	        //TextTitle thetitle = chart.getTitle();
+	        //thetitle.setFont(new Font("TimesRoman", Font.BOLD,12));
+	        chart.getTitle().setFont(new Font("TimesRoman", Font.BOLD,12));
 	    }else{
 
 	    }
