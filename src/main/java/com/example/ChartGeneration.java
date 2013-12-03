@@ -164,7 +164,7 @@ public class ChartGeneration {
 			System.out.println(width);
 			
 
-			if(request.getParameter("ivis") == true){
+			if(request.getParameter("ivis") == "true"){
 				isIVIS = true;
 
 			}
