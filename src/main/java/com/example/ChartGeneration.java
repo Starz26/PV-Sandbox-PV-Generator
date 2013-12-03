@@ -153,7 +153,7 @@ public class ChartGeneration {
 			int height = 450;
 			boolean isIVIS;
 			// getting values for querystring parameters in variables
-			/*if(request.getParameter("height") != null){
+			if(request.getParameter("height") != null){
 				height = Integer.parseInt(request.getParameter("height"));
 			}
 			if(request.getParameter("width") != null){
@@ -162,10 +162,11 @@ public class ChartGeneration {
 
 			System.out.println(height);
 			System.out.println(width);
-			*/
+			
 
-			if(request.getParameters("ivis") == true){
+			if(request.getParameter("ivis") == true){
 				isIVIS = true;
+
 			}
 
 			if (request.getParameter("xval") != null) {
