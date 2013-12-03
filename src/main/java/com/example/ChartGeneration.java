@@ -374,7 +374,7 @@ public class ChartGeneration {
 			
 			if(isIVIS){
 				domain.setLabelFont(new Font("SansSerif", Font.BOLD, 10));
-				domain.setTickLabelFont(New Font("SansSerif",Font.PLAIN,10));
+				domain.setTickLabelFont(new Font("SansSerif",Font.PLAIN,10));
 			}
  
 			domain.setRange(xminRange, xmaxRange);
@@ -398,7 +398,7 @@ public class ChartGeneration {
 			
 			if(isIVIS){
 				range.setLabelFont(new Font("SansSerif", Font.BOLD, 10));
-				range.setTickLabelFont(New Font("SansSerif",Font.PLAIN,10));
+				range.setTickLabelFont(new Font("SansSerif",Font.PLAIN,10));
 			}
 
 
