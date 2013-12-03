@@ -366,7 +366,7 @@ public class ChartGeneration {
 			NumberAxis domain = (NumberAxis) plot.getDomainAxis();
 			
 			domain.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 8));
-
+ 
 			domain.setRange(xminRange, xmaxRange);
 			domain.setTickUnit(new NumberTickUnit(x_Interval));
 			domain.setLabelPaint(Color.black);
