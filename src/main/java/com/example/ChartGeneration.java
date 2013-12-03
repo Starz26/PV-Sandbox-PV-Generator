@@ -29,6 +29,7 @@ import javax.net.ssl.SSLSession;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
@@ -322,10 +323,13 @@ public class ChartGeneration {
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
 		
 		//Set title font here for IVIS
-		if(isIVIS){
-			TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.BOLD, 12));
+		if(isIVIS){			
+			TextTitle title2 = new TextTitle("MY TITLE", new Font("SansSerif", Font.BOLD, 12));
+			TextTitle mysub = new TextTitle("SUB", new Font("SansSerif", Font.BOLD, 10));
 			title2.setTextAlignment(HorizontalAlignment.CENTER);
+			mysub.setTextAlignment(HorizontalAlignment.CENTER);
 	        chart.setTitle(title2);
+	        chart.addSubtitle(mysub);
 	    }else{
 
 	    }
