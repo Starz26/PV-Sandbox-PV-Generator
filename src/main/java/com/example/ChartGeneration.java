@@ -200,11 +200,8 @@ public class ChartGeneration {
 				typeCht = request.getParameter("charttype");
 			}
 			if (request.getParameter("graphtitle") != null) {
-System.out.println("PARAM: " + request.getParameter("graphtitle"));
-System.out.println("Title Before: " + graphTitle);
 				graphTitle = request.getParameter("graphtitle");
 				graphTitle = graphTitle.replaceAll("<.*?>","");
-System.out.println("Title After: " + graphTitle);
 			}
 			if (request.getParameter("xaxistitle") != null) {
 				xAxisTitle = request.getParameter("xaxistitle");
@@ -327,12 +324,13 @@ System.out.println("Title After: " + graphTitle);
 		
 		//Set title font here for IVIS
 		if(isIVIS){			
-			TextTitle title2 = new TextTitle("MY TITLE", new Font("SansSerif", Font.BOLD, 12));
-			TextTitle mysub = new TextTitle("SUB", new Font("SansSerif", Font.BOLD, 10));
+			TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.BOLD, 12));
+			//TextTitle mysub = new TextTitle("SUB", new Font("SansSerif", Font.BOLD, 10));
 			title2.setTextAlignment(HorizontalAlignment.CENTER);
-			mysub.setTextAlignment(HorizontalAlignment.CENTER);
-	        chart.setTitle(title2);
-	        chart.addSubtitle(mysub);
+			//mysub.setTextAlignment(HorizontalAlignment.CENTER);
+	        chart.setTitle(null);
+	        chart.addSubtitle(title2);
+	        //chart.addSubtitle(mysub);
 	    }else{
 
 	    }
