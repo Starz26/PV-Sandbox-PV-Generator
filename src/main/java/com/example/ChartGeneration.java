@@ -162,13 +162,13 @@ public class ChartGeneration {
 
 			System.out.println(height);
 			System.out.println(width);
-			
+			System.out.println(request.getParameter("ivis"));
 
-			if(request.getParameter("ivis") == "true"){
+
+			if(request.getParameter("ivis") === "true"){
 				isIVIS = true;
-
 			}
-
+System.out.println(isIVIS);
 			if (request.getParameter("xval") != null) {
 				xValues = request.getParameter("xval");
 			}
@@ -316,7 +316,7 @@ public class ChartGeneration {
 		boolean tooltips = true;
 		boolean urls = false;
 		JFreeChart chart = ChartFactory
-				.createScatterPlot(null, xHdr, yHdr, dataset,
+				.createScatterPlot(grphTitle, xHdr, yHdr, dataset,
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
 		
 		//Set title font here for IVIS
@@ -324,6 +324,8 @@ public class ChartGeneration {
 			TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.BOLD, 12));
 			title2.setTextAlignment(HorizontalAlignment.CENTER);
 	        chart.setTitle(title2);
+	    }else{
+
 	    }
 		//chart.setTitle("TEST");
 		// setting background color for chart
