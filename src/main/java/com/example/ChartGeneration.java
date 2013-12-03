@@ -151,7 +151,7 @@ public class ChartGeneration {
 			// hxw of image to be generated for chart - default to 550x450
 			int width = 550;
 			int height = 450;
-			boolean isIVIS;
+			boolean isIVIS = false;
 			// getting values for querystring parameters in variables
 			if(request.getParameter("height") != null){
 				height = Integer.parseInt(request.getParameter("height"));
