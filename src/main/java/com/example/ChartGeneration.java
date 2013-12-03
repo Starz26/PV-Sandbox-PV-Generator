@@ -365,7 +365,7 @@ public class ChartGeneration {
 			plot.setDomainCrosshairVisible(true);
 			NumberAxis domain = (NumberAxis) plot.getDomainAxis();
 			
-			domain.setTickLabelFont(new Font("SansSerif", Font.PLAIN, 8));
+			domain.setLabelFont(new Font("SansSerif", Font.PLAIN, 8));
  
 			domain.setRange(xminRange, xmaxRange);
 			domain.setTickUnit(new NumberTickUnit(x_Interval));
