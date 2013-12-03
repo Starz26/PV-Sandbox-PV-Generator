@@ -484,7 +484,7 @@ public class ChartGeneration {
 	// all values used to generate chart image
 	// for this scenario SF public web service will be used
 	public String GetDataFromSF(String pvId, String accToken, String chartType,
-			String analyte, String isivis) {
+			String analyte, boolean isivis) {
 		String line = "";
 		String authKey = accToken; // "1111";
 		
