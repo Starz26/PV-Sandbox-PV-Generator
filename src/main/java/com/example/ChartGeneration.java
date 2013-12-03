@@ -328,7 +328,7 @@ public class ChartGeneration {
 			//TextTitle mysub = new TextTitle("SUB", new Font("SansSerif", Font.BOLD, 10));
 			title2.setTextAlignment(HorizontalAlignment.CENTER);
 			//mysub.setTextAlignment(HorizontalAlignment.CENTER);
-	        chart.setTitle(null);
+	        chart.setTitle(title2);
 	        chart.addSubtitle(title2);
 	        //chart.addSubtitle(mysub);
 	    }else{
