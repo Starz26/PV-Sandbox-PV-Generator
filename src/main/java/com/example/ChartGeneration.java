@@ -151,9 +151,9 @@ public class ChartGeneration {
 			// hxw of image to be generated for chart - default to 550x450
 			int width = 550;
 			int height = 450;
-
+			boolean isIVIS;
 			// getting values for querystring parameters in variables
-			if(request.getParameter("height") != null){
+			/*if(request.getParameter("height") != null){
 				height = Integer.parseInt(request.getParameter("height"));
 			}
 			if(request.getParameter("width") != null){
@@ -162,6 +162,11 @@ public class ChartGeneration {
 
 			System.out.println(height);
 			System.out.println(width);
+			*/
+
+			if(request.getParameters("ivis") == true){
+				isIVIS = true;
+			}
 
 			if (request.getParameter("xval") != null) {
 				xValues = request.getParameter("xval");
@@ -219,7 +224,7 @@ public class ChartGeneration {
 			// getting chart using jfree chart library
 			JFreeChart chart = getChart(dataset, graphTitle, xAxisTitle,
 					yAxisTitle, chartType, x1y1, x2y2, xRange, xInterval,
-					yRange, yInterval);
+					yRange, yInterval, isIVIS);
 			
 			// jfree chart library method to generate image for chart
 			ChartUtilities.writeChartAsPNG(outputStream, chart, width, height);
@@ -305,7 +310,7 @@ public class ChartGeneration {
 	public JFreeChart getChart(XYSeriesCollection dataset, String grphTitle,
 			String xHdr, String yHdr, String chrtType, String x1y1,
 			String x2y2, String xAxisRange, String xAxisInterval,
-			String yAxisRange, String yAxisInterval) {
+			String yAxisRange, String yAxisInterval, boolean isIVIS) {
 		boolean legend = true;
 		boolean tooltips = true;
 		boolean urls = false;
@@ -313,10 +318,12 @@ public class ChartGeneration {
 				.createScatterPlot(null, xHdr, yHdr, dataset,
 						PlotOrientation.VERTICAL, legend, tooltips, urls);
 		
-		TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.BOLD, 12));
-		title2.setTextAlignment(HorizontalAlignment.CENTER);
-        chart.setTitle(title2);
-
+		//Set title font here for IVIS
+		if(isIVIS){
+			TextTitle title2 = new TextTitle(grphTitle, new Font("SansSerif", Font.BOLD, 12));
+			title2.setTextAlignment(HorizontalAlignment.CENTER);
+	        chart.setTitle(title2);
+	    }
 		//chart.setTitle("TEST");
 		// setting background color for chart
 		chart.setBackgroundPaint(Color.white); 
@@ -365,7 +372,10 @@ public class ChartGeneration {
 			plot.setDomainCrosshairVisible(true);
 			NumberAxis domain = (NumberAxis) plot.getDomainAxis();
 			
-			domain.setLabelFont(new Font("SansSerif", Font.BOLD, 10));
+			if(isIVIS){
+				domain.setLabelFont(new Font("SansSerif", Font.BOLD, 10));
+				domain.setTickLabelFont(New Font("SansSerif",Font.PLAIN,10));
+			}
  
 			domain.setRange(xminRange, xmaxRange);
 			domain.setTickUnit(new NumberTickUnit(x_Interval));
@@ -385,6 +395,13 @@ public class ChartGeneration {
 			plot.setRangeCrosshairStroke(new BasicStroke(0.5f));
 			plot.setRangeCrosshairPaint(Color.black);
 			NumberAxis range = (NumberAxis) plot.getRangeAxis();
+			
+			if(isIVIS){
+				range.setLabelFont(new Font("SansSerif", Font.BOLD, 10));
+				range.setTickLabelFont(New Font("SansSerif",Font.PLAIN,10));
+			}
+
+
 			range.setRange(yminRange, ymaxRange);
 			range.setTickUnit(new NumberTickUnit(y_Interval));
 			range.setLabelPaint(Color.black);
